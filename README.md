@@ -1,6 +1,17 @@
 # Code FREAK Helm Chart
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/codefreak/charts?include_prereleases&label=Chart&logo=helm)
 
 Official Helm chart for installing Code FREAK on a Kubernetes cluster.
+
+## Quickstart
+
+```
+helm repo add codefreak https://codefreak.github.io/charts
+helm install my-codefreak-install codefreak/codefreak
+```
+
+## Configuration values
+Please check out the [`values.yaml`](./charts/codefreak/values.yaml) for a list of supported values and their purposes.
 
 ## Prerequisites
 * Helm
@@ -9,9 +20,6 @@ Official Helm chart for installing Code FREAK on a Kubernetes cluster.
 
 ## Resource requirements
 The resource requirements will depend on the number of concurrent users you expect. For a production environment you should expect 1-2GiB RAM per concurrent user.
-
-## Configuration values
-Please check out the [`values.yml`](./values.yaml) for a list of supported values and their purposes.
 
 ## Creating the JWT signing keypair
 Code FREAK will use signed JWTs for authenticating users.
