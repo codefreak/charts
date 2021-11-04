@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  codefreak:
+  - apiVersion: v2
+    appVersion: 7.0.0
+    created: "2021-11-04T16:43:41.5592589Z"
+    description: A Helm chart for deploying Code FREAK
+    digest: b82a1537caf4758f3dd2edb845ee0aa02af90007908c2975b27b3e8799afc9c9
+    name: codefreak
+    type: application
+    urls:
+    - https://github.com/codefreak/charts/releases/download/codefreak-0.1.0/codefreak-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-11-04T16:43:41.5592741Z"
