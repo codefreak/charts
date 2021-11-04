@@ -1,4 +1,4 @@
-{{ if (.Values.workspaces.createNamespace) and (ne .Values.workspaces.namespace .Release.Namespace) }}
+{{ if and (.Values.workspaces.createNamespace) (ne .Values.workspaces.namespace .Release.Namespace) }}
 apiVersion: v1
 kind: Namespace
 metadata:
