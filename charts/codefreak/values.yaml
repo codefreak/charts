@@ -4,7 +4,8 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
-imagePullSecrets: [ ]
+imagePullSecrets: []
+hostAliases: []
 nameOverride: ""
 fullnameOverride: ""
 
@@ -106,7 +107,7 @@ workspaces:
   # the Code FREAK server (which is not recommended)
   namespace:
   # If the above namespace is not empty the helm chart will create it
-  createNamespace: true
+  createNamespace: false
   # Template that will be used to create workspace-URLs. If empty this will be "{{publicUrl}}/{workspaceIdentifier}"
   baseUrlTemplate:
   # CPU limit for workspaces. Must be a valid value for Pod's resource.limits[].cpu

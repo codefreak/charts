@@ -11,6 +11,12 @@ ingress:
         - path: /
           pathType: Prefix
 
+hostAliases:
+  - ip: "192.168.49.2"
+    hostnames:
+    - "codefreak-workspaces"
+
 workspaces:
   baseUrlTemplate: http://codefreak-workspaces/{workspaceIdentifier}
+  createNamespace: true
   namespace: my-workspace-namespace

@@ -25,4 +25,37 @@ Check that opening `http://codefreak` and `http://codefreak-workspaces` in your 
 
 ## Install Code FREAK on minikube
 
-1. 
+Please create a `cf-minikube-values.yml` file with the following contents and adjust the value of `hostAliases[0].ip`.
+
+```yml
+ingress:
+  enabled: true
+  hosts:
+    - host: codefreak
+      paths:
+        - path: /
+          pathType: Prefix
+
+hostAliases:
+  # Please set this IP to the value of `minikube ip`
+  - ip: "192.168.49.2"
+    hostnames:
+    - "codefreak-workspaces"
+
+workspaces:
+  baseUrlTemplate: http://codefreak-workspaces/{workspaceIdentifier}
+  createNamespace: true
+  namespace: my-workspace-namespace
+
+```
+
+Afterwards you can start the app using the following commands:
+
+```
+helm repo add codefreak https://codefreak.github.io/charts
+helm repo update codefreak
+helm install -f cf-minikube-values.yml my-codefreak-install codefreak/codefreak
+```
+
+You can check the progress using `kubectl -n default get pods --selector app.kubernetes.io/instance=my-codefreak-install`.
+If the application is `Ready` the UI should be reachable at `http://codefreak` in your browser.
