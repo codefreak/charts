@@ -103,6 +103,13 @@ database:
     passwordSecretKey:
 
 workspaces:
+  # Image preloading ensures all workspace nodes have the needed image available and do not have to pull them when
+  # a workspaces starts up
+  imagePreloading:
+    # Enable preloading of workspaces images to all nodes by creating a DaemonSet with the workspace image
+    enabled: true
+    # Image that will be used for idling
+    idleImage: gcr.io/google_containers/pause
   # Namespace where workspaces should be started in. If blank workspaces will be deployed in the same namespace as
   # the Code FREAK server (which is not recommended)
   namespace:

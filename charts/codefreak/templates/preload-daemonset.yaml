@@ -1,0 +1,25 @@
+{{- if .Values.workspaces.imagePreloading.enabled -}}
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: {{ include "codefreak.fullname" . }}-image-preload
+  labels:
+    {{- include "codefreak.labels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "codefreak.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "codefreak.selectorLabels" . | nindent 8 }}
+    spec:
+      initContainers:
+      - name: preload-container
+        image: {{ .Values.workspaces.companionImage }}
+        command:
+        - "/usr/bin/true"
+      containers:
+      - name: pause
+        image: {{ .Values.workspaces.imagePreloading.idleImage }}
+{{- end }}
