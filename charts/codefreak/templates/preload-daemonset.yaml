@@ -18,7 +18,7 @@ spec:
       - name: preload-container
         image: {{ .Values.workspaces.companionImage }}
         command:
-        - "/usr/bin/true"
+        - "/bin/true"
       containers:
       - name: pause
         image: {{ .Values.workspaces.imagePreloading.idleImage }}
